@@ -69,7 +69,7 @@ type st_util from statictext within w_main
 end type
 type pb_1 from picturebutton within w_main
 end type
-type dw_1 from datawindow within w_main
+type odw_visor from datawindow within w_main
 end type
 end forward
 
@@ -118,9 +118,18 @@ cb_1 cb_1
 pb_2 pb_2
 st_util st_util
 pb_1 pb_1
-dw_1 dw_1
+odw_visor odw_visor
 end type
 global w_main w_main
+
+type variables
+exception vliError
+
+string visInput, visVisor
+
+uo_calc uoi_calc
+
+end variables
 
 on w_main.create
 this.st_6=create st_6
@@ -156,7 +165,7 @@ this.cb_1=create cb_1
 this.pb_2=create pb_2
 this.st_util=create st_util
 this.pb_1=create pb_1
-this.dw_1=create dw_1
+this.odw_visor=create odw_visor
 this.Control[]={this.st_6,&
 this.st_5,&
 this.st_4,&
@@ -190,7 +199,7 @@ this.cb_1,&
 this.pb_2,&
 this.st_util,&
 this.pb_1,&
-this.dw_1}
+this.odw_visor}
 end on
 
 on w_main.destroy
@@ -227,8 +236,16 @@ destroy(this.cb_1)
 destroy(this.pb_2)
 destroy(this.st_util)
 destroy(this.pb_1)
-destroy(this.dw_1)
+destroy(this.odw_visor)
 end on
+
+event open;vliError = create exception
+
+uoi_calc = create uo_calc
+
+odw_visor.insertRow(1)
+
+end event
 
 type st_6 from statictext within w_main
 integer x = 1234
@@ -451,6 +468,17 @@ fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 string text = "1"
 end type
+
+event clicked;try
+	
+	if uoi_calc.of_preenche_input(visInput,'1') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	messagebox('1','1')
+end try
+end event
 
 type cb_16 from commandbutton within w_main
 integer x = 1061
@@ -743,7 +771,7 @@ alignment htextalign = left!
 long backcolor = 134217746
 end type
 
-type dw_1 from datawindow within w_main
+type odw_visor from datawindow within w_main
 integer x = 23
 integer y = 164
 integer width = 1399
