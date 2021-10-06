@@ -247,6 +247,49 @@ odw_visor.insertRow(1)
 
 end event
 
+event key;choose case key
+	case keyNumPad1!
+			uoi_calc.of_monta_input(visInput,'1') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad2!
+			uoi_calc.of_monta_input(visInput,'2') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad3!
+			uoi_calc.of_monta_input(visInput,'3') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad4!
+			uoi_calc.of_monta_input(visInput,'4') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad5!
+			uoi_calc.of_monta_input(visInput,'5') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad6!
+			uoi_calc.of_monta_input(visInput,'6') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad7!
+			uoi_calc.of_monta_input(visInput,'7') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad8!
+			uoi_calc.of_monta_input(visInput,'8') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad9!
+			uoi_calc.of_monta_input(visInput,'9') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyNumPad0!
+			uoi_calc.of_monta_input(visInput,'0') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keyEnter!
+			uoi_calc.of_efetua_calc()
+	case keyAdd!
+			uoi_calc.of_monta_input(visInput,'+') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)
+	case keySubtract!
+			uoi_calc.of_monta_input(visInput,'-') 
+			uoi_calc.of_preenche_visor(visInput,odw_visor)			
+		case else
+	end choose
+end event
+
 type st_6 from statictext within w_main
 integer x = 1234
 integer y = 648
@@ -394,6 +437,17 @@ string facename = "Tahoma"
 string text = "0"
 end type
 
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'0') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
+
 type cb_21 from commandbutton within w_main
 integer x = 18
 integer y = 1536
@@ -439,6 +493,17 @@ string facename = "Tahoma"
 string text = "3"
 end type
 
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'3') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
+
 type cb_18 from commandbutton within w_main
 integer x = 366
 integer y = 1376
@@ -453,6 +518,17 @@ fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 string text = "2"
 end type
+
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'2') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
 
 type cb_17 from commandbutton within w_main
 integer x = 18
@@ -471,12 +547,12 @@ end type
 
 event clicked;try
 	
-	if uoi_calc.of_preenche_input(visInput,'1') = 0 then throw vliError
+	if uoi_calc.of_monta_input(visInput,'1') = 0 then throw vliError
 	
 	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
 
 catch(exception err)
-	messagebox('1','1')
+	
 end try
 end event
 
@@ -510,6 +586,17 @@ string facename = "Tahoma"
 string text = "6"
 end type
 
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'6') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
+
 type cb_14 from commandbutton within w_main
 integer x = 366
 integer y = 1216
@@ -525,6 +612,17 @@ string facename = "Tahoma"
 string text = "5"
 end type
 
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'5') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
+
 type cb_13 from commandbutton within w_main
 integer x = 18
 integer y = 1216
@@ -539,6 +637,17 @@ fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 string text = "4"
 end type
+
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'4') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
 
 type cb_12 from commandbutton within w_main
 integer x = 1061
@@ -567,8 +676,19 @@ fontcharset fontcharset = ansi!
 fontpitch fontpitch = variable!
 fontfamily fontfamily = swiss!
 string facename = "Tahoma"
-string text = "8"
+string text = "9"
 end type
+
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'9') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
 
 type cb_10 from commandbutton within w_main
 integer x = 366
@@ -585,6 +705,17 @@ string facename = "Tahoma"
 string text = "8"
 end type
 
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'8') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
+
 type cb_9 from commandbutton within w_main
 integer x = 18
 integer y = 1056
@@ -599,6 +730,17 @@ fontfamily fontfamily = swiss!
 string facename = "Tahoma"
 string text = "7"
 end type
+
+event clicked;try
+	
+	if uoi_calc.of_monta_input(visInput,'7') = 0 then throw vliError
+	
+	if uoi_calc.of_preenche_visor(visInput,odw_visor) = 0 then throw vliError
+
+catch(exception err)
+	
+end try
+end event
 
 type cb_8 from commandbutton within w_main
 integer x = 1061
